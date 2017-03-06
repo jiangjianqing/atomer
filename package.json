@@ -1,0 +1,24 @@
+{
+  "name": "atomer",
+  "version": "0.0.1",
+  "description": "atom compiler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"gt\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangjianqing/atomer.git"
+  },
+  "keywords": [
+    "atom",
+    "compiler",
+    "module"
+  ],
+  "author": "cz_jjq",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jiangjianqing/atomer/issues"
+  },
+  "homepage": "https://github.com/jiangjianqing/atomer#readme"
+}
