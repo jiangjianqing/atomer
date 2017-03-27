@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/jiangjianqing/atomer/issues"
   },
-  "homepage": "https://github.com/jiangjianqing/atomer#readme"
+  "homepage": "https://github.com/jiangjianqing/atomer#readme",
+
+  //custom properties
+  "preferGlobal":true,
+  "bin":"./bin/cli.js"
 }
