@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/jiangjianqing/atomer#readme",
 
-  //custom properties
   "preferGlobal":true,
   "bin":"./bin/cli.js"
 }
