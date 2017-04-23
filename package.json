@@ -21,7 +21,10 @@
     "url": "https://github.com/jiangjianqing/atomer/issues"
   },
   "homepage": "https://github.com/jiangjianqing/atomer#readme",
-
-  "preferGlobal":true,
-  "bin":"./bin/cli.js"
+  "preferGlobal": true,
+  "bin": "./bin/cli.js",
+  "dependencies": {
+    "request": "^2.81.0",
+    "tar-pack": "^3.4.0"
+  }
 }
