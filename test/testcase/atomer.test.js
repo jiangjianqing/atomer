@@ -34,7 +34,7 @@ describe('atomer 完整测试', () => {
     });
 
     after(function() {
-        //deleteFolder(moduleDir);
+        deleteFolder(moduleDir);
     });
 
     it('读取atomer-example.json', done => {
@@ -47,13 +47,15 @@ describe('atomer 完整测试', () => {
     it("iterate dependencies field", done => {
         var i =0;
         var j=0;
+        /*使用定时器太弱了
         setTimeout(function () {
             if (i>0 && i===j){
                 done();
             }else{
                 throw new Error("测试失败");
             }
-        },1500);
+        },1500);*/
+        var finished =false;
         for(var repo in config.dependencies){
             i += 1;
             var repoName = repo;
@@ -67,9 +69,13 @@ describe('atomer 完整测试', () => {
                     should.not.exist(error);
                     fs.unlinkSync(localFileName);
                     j += 1;
+                    if (finished && i === j ){
+                        done();
+                    }
                 });
             });
         }
+        finished=true;
         //console.log(config.dependencies["app"]);
     });
 
