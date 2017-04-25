@@ -8,7 +8,7 @@ var deleteFolder = require("../../lib/deleteFolder");
 
 var config;
 
-var moduleDir = __dirname+"/node_modules";
+var moduleDir = process.cwd()+"/tmp";
 
 
 function downloadRepoToLocal(repo, localDir, callback){
