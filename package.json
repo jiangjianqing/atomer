@@ -1,6 +1,6 @@
 {
   "name": "atomer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "atom compiler",
   "main": "index.js",
   "scripts": {
