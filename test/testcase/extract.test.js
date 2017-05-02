@@ -15,8 +15,9 @@ describe('extract', () => {
         var repoName= "app";
         var filename = __dirname + "/../resources/"+repoName+".tar.gz";
         var targetDir= __dirname+"/"+repoName;
+        console.log(targetDir);
         extract(filename,targetDir,function(error){
-            deleteFolder(targetDir);
+            //deleteFolder(targetDir);
             should.not.exist(error);
             done();
         });

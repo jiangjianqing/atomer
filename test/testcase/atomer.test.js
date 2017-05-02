@@ -5,11 +5,12 @@ var expect=require('chai').expect;
 var extract = require("../../lib/extract.js");
 var download = require("../../lib/download.js");
 var deleteFolder = require("../../lib/deleteFolder");
+//var mkdirsSync = require("../../lib/mkdirs-sync");
 
 var config;
 
-var moduleDir = process.cwd()+"/tmp";
-
+var moduleDir = process.cwd()+"/tmp/@focusight";
+var tmpDir = process.cwd()+"/tmp";
 
 function downloadRepoToLocal(repo, localDir, callback){
     var repoName = repo;
@@ -29,12 +30,13 @@ function downloadRepoToLocal(repo, localDir, callback){
 }
 describe('atomer 完整测试', () => {
     before(function() {
-        deleteFolder(moduleDir);
+        deleteFolder(tmpDir);
+        fs.mkdirSync(tmpDir);
         fs.mkdirSync(moduleDir);
     });
 
     after(function() {
-        deleteFolder(moduleDir);
+        //deleteFolder(moduleDir);
     });
 
     it('读取atomer-example.json', done => {
@@ -44,7 +46,7 @@ describe('atomer 完整测试', () => {
         done();
     });
 
-    it("iterate dependencies field", done => {
+    it.skip("iterate dependencies field", done => {
         var i =0;
         var j=0;
         /*使用定时器太弱了
@@ -59,7 +61,7 @@ describe('atomer 完整测试', () => {
         for(var repo in config.dependencies){
             i += 1;
             var repoName = repo;
-            downloadRepoToLocal(repoName,moduleDir,function(error,localFileName,repoName){
+            downloadRepoToLocal(repoName,tmpDir,function(error,localFileName,repoName){
                 should.not.exist(error);
                 var repoDir = moduleDir+"/"+repoName;
                 extract(localFileName,repoDir,function (error) {
