@@ -2,7 +2,7 @@ import assert from 'assert';
 import fs from "fs";
 var should = require('chai').should(); //注意：使用should()后会污染js中对象的原型对象
 var expect=require('chai').expect;
-var extract = require("../../lib/extract.js");
+var unpack = require("../../lib/tar").unpack;
 var download = require("../../lib/download.js");
 var deleteFolder = require("../../lib/deleteFolder");
 //var mkdirsSync = require("../../lib/mkdirs-sync");
@@ -28,7 +28,7 @@ function downloadRepoToLocal(repo, localDir, callback){
         callback(error, localFileName, repoName);
     });
 }
-describe('atomer 完整测试', () => {
+describe.skip('atomer 完整测试', () => {
     before(function() {
         deleteFolder(tmpDir);
         fs.mkdirSync(tmpDir);
@@ -46,7 +46,7 @@ describe('atomer 完整测试', () => {
         done();
     });
 
-    it.skip("iterate dependencies field", done => {
+    it("iterate dependencies field", done => {
         var i =0;
         var j=0;
         /*使用定时器太弱了
@@ -64,7 +64,7 @@ describe('atomer 完整测试', () => {
             downloadRepoToLocal(repoName,tmpDir,function(error,localFileName,repoName){
                 should.not.exist(error);
                 var repoDir = moduleDir+"/"+repoName;
-                extract(localFileName,repoDir,function (error) {
+                unpack(localFileName,repoDir,function (error) {
 
                     console.log(localFileName);
                     console.log(repoDir);

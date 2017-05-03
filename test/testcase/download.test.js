@@ -11,7 +11,7 @@ console.log(process.cwd());
 
 //console.log(atomerConfig);
 
-describe('download file', () => {
+describe.skip('download file', () => {
 
     it('http文件下载', done => {
         var repoName = "app";
