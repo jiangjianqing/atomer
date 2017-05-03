@@ -34,6 +34,8 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
+    "commander": "^2.9.0",
+    "ramda": "^0.23.0",
     "request": "^2.81.0",
     "tar-pack": "^3.4.0"
   }
