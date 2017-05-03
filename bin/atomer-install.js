@@ -31,7 +31,7 @@ if(packageName){
 }else{
     for(var pkgName in config.dependencies) {
         downloadPackage(pkgName,function(tarFileName, repoName){
-            unpackToNodeModules(tarFileName, repoName, function(){
+            unpackToNodeModules(tarFileName, repoName, function(err, targetDir, repoName){
                 console.log("unpack package [ %s  ] ok!",tarFileName);
             });
         });

@@ -16,6 +16,7 @@ module.exports = function(tarFileName,repoName, callback){
             console.log(err.stack);
             process.exit(1);
         }
-        callback(repoName);
+        //返回解压目录，后续可以执行npm
+        callback(err, targetDir, repoName);
     });
 }
