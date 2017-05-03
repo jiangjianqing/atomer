@@ -28,7 +28,7 @@ function downloadRepoToLocal(repo, localDir, callback){
         callback(error, localFileName, repoName);
     });
 }
-describe.skip('atomer 完整测试', () => {
+describe('atomer 完整测试', () => {
     before(function() {
         deleteFolder(tmpDir);
         fs.mkdirSync(tmpDir);
@@ -36,7 +36,7 @@ describe.skip('atomer 完整测试', () => {
     });
 
     after(function() {
-        //deleteFolder(moduleDir);
+        deleteFolder(tmpDir);
     });
 
     it('读取atomer-example.json', done => {
