@@ -5,3 +5,13 @@
 ```
 npm link
 ```
+命令行参数可以用系统变量 process.argv 获取。
+```npm
+#!/usr/bin/env node
+console.log('hello ', process.argv[2]);
+```
+```
+$ ./hello tom
+hello tom
+```
+上面代码中，实际上执行的是 node ./hello tom ，对应的 process.argv 是 ['node', '/path/to/hello', 'tom'] 。

@@ -2,7 +2,6 @@
   "name": "atomer",
   "version": "0.0.2",
   "description": "atom compiler",
-  "main": "index.js",
   "scripts": {
     "compile": "test -d src && babel src -d lib -s || echo 'Compile:src directory not found,compile ignored!'",
     "test": "npm run compile && mocha",
