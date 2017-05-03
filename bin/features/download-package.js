@@ -23,8 +23,12 @@ function downloadPackage(packageName,callback){
      should.not.equal(foo, null);
      **/
 
-    download(fileUrl,localFileName,function (error) {
-        callback(error, localFileName, repoName);
+    download(fileUrl,localFileName,function (err) {
+        if (err){
+            console.log(err.stack);
+            process.exit(1);
+        }
+        callback(localFileName, repoName);
     });
 }
 
