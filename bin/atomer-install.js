@@ -7,6 +7,7 @@ var atomPackage= require("../lib/atom-package");
 
 var downloadPackage = require("./features/download-package");
 var unpackToNodeModules = require("./features/unpack-to-node-modules");
+var execNpmInstall = require("./features/exec-npm-install");
 
 var packageName;
 program
@@ -33,6 +34,7 @@ if(packageName){
         downloadPackage(pkgName,function(tarFileName, repoName){
             unpackToNodeModules(tarFileName, repoName, function(err, targetDir, repoName){
                 console.log("unpack package [ %s  ] ok!",tarFileName);
+                execNpmInstall(targetDir);
             });
         });
     }
