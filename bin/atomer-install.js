@@ -29,7 +29,7 @@ if(packageName){
     });
     //todo:下载包并安装到node_modules
 }else{
-    for(var pkgName in config.dependencies) {
+    for(var pkgName in config["dependencies"]) {
         downloadPackage(pkgName,function(tarFileName, repoName){
             unpackToNodeModules(tarFileName, repoName, function(err, targetDir, repoName){
                 console.log("unpack package [ %s  ] ok!",tarFileName);
