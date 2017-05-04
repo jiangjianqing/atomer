@@ -14,7 +14,8 @@ if(config){
     //console.log(config);
     var package = require(cwd+"/package.json");
     program.version(package.version)
-        .command('install [name]', 'install one or more atom packages')
+        .command('install [name]', 'install one atom packages')
+        .command('uninstall [name]', 'uninstall one atom package')
         .parse(process.argv);
 
 }else{
