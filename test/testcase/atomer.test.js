@@ -28,7 +28,7 @@ function downloadRepoToLocal(repo, localDir, callback){
         callback(error, localFileName, repoName);
     });
 }
-describe('atomer 完整测试', () => {
+describe.skip('atomer 完整测试', () => {
     before(function() {
         deleteFolder(tmpDir);
         fs.mkdirSync(tmpDir);
