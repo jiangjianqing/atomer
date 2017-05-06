@@ -3,9 +3,10 @@
  */
 var fs = require("fs");
 var download = require("../../lib/download");
+var sh = require("shelljs");
 
-
-var tmpDir = process.cwd()+"/tmp";
+//2017.05.06 shelljs的api中居然写成了tempDir，坑。。。。
+var tmpDir = sh.tempdir()+"/atomer_download_tmp";//process.cwd()+"/tmp";
 
 function downloadPackage(packageName,callback){
     var repoName = packageName;
