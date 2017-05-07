@@ -10,7 +10,7 @@ var downloadPackage = require("./features/download-package");
 var unpackToNodeModules = require("./features/unpack-to-node-modules");
 var execNpmInstall = require("./features/exec-npm-install");
 
-var Series = require("../lib/series");
+var Series = require("../lib/async/series");
 
 var packageName;
 program
