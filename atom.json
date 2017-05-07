@@ -1,6 +1,7 @@
 {
 	"dependencies": {
 		"test": "latest",
-		"app": "latest"
+		"app": "latest",
+		"eruw": "latest"
 	}
 }

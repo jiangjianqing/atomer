@@ -32,36 +32,48 @@ var installPackage = function(pkgName,successCallback){
         function(callback, targetDir, repoName){
             console.log("unpack package [ %s  ] ok!",repoName);
             execNpmInstall(targetDir);
-            if(successCallback){
-                successCallback();
-            }
+            successCallback();
         }
     ]);
 
     s.fail(function(error){
-        console.log("download package [%s] failed!", pkgName);
-        if(successCallback){
-            successCallback(error);
-        }
+        successCallback(error);
     });
 
     s.run(pkgName);
 };
 
+var outputDownloadError = function(error){
+    if (error.NotFoundError){
+        console.warn("Can not find package [%s]!", packageName);
+    }else{
+        console.warn("download package [%s] encounter error!", packageName);
+    }
+};
+
 var config = atomPackage.load();
 if(packageName){
 
-    if (!util.isObject(config["dependencies"])){
-        config["dependencies"] = {};
-    }
+    installPackage(packageName, function(error){
+        if(util.isNullOrUndefined(error)){
+            if (!util.isObject(config["dependencies"])){
+                config["dependencies"] = {};
+            }
 
-    config["dependencies"][packageName] = "latest";
-    atomPackage.save(config);
+            config["dependencies"][packageName] = "latest";
+            atomPackage.save(config);
+        }else{
+            outputDownloadError(error);
+        }
+    });
 
-    installPackage(packageName);
 }else{
     for(var pkgName in config["dependencies"]) {
-        installPackage(pkgName);
+        installPackage(pkgName, function(error){
+            if(!util.isNullOrUndefined(error)) {
+                outputDownloadError(error);
+            }
+        });
     }
 }
 
