@@ -25,6 +25,9 @@ function downloadPackage(packageName,callback){
      **/
 
     download(fileUrl,localFileName,function (error) {
+        if(error){
+            error.repoName = packageName;
+        }
         callback(error, localFileName, repoName);
     });
 }

@@ -45,9 +45,9 @@ var installPackage = function(pkgName,successCallback){
 
 var outputDownloadError = function(error){
     if (error.NotFoundError){
-        console.warn("Can not find package [%s]!", packageName);
+        console.warn("Can not find package [%s]!", error.repoName);
     }else{
-        console.warn("download package [%s] encounter error!", packageName);
+        console.warn("download package [%s] encounter error!", error.repoName);
     }
 };
 
