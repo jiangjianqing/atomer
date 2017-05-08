@@ -60,7 +60,7 @@ describe('series test', () => {
 
         });
 
-        s.final(function(){
+        s.finally(function(){
             done();
         });
 
