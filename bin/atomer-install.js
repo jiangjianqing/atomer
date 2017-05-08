@@ -34,13 +34,9 @@ var installPackage = function(pkgName,successCallback){
             execNpmInstall(targetDir);
             successCallback();
         }
-    ]);
-
-    s.fail(function(error){
+    ]).fail(function(error){
         successCallback(error);
-    });
-
-    s.run(pkgName);
+    }).run(pkgName);
 };
 
 var outputDownloadError = function(error){
