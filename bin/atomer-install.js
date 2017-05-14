@@ -10,7 +10,7 @@ var downloadPackage = require("./features/download-package");
 var unpackToNodeModules = require("./features/unpack-to-node-modules");
 var execNpmInstall = require("./features/exec-npm-install");
 
-var Series = require("../lib/async/series");
+var series = require("atomer-async").series;
 
 var packageName;
 program
@@ -21,21 +21,25 @@ program
 program.parse(process.argv);
 
 var installPackage = function(pkgName,successCallback){
-    var s = new Series();
-    s.init([
-        function(callback, pkgName){
-            downloadPackage(pkgName,callback);
+
+    series([
+        function(pkgName){
+            downloadPackage(pkgName,this.done("downloadPackage"));
         },
-        function(callback, tarFileName, repoName){
-            unpackToNodeModules(tarFileName, repoName, callback);
+        function(tarFileName, repoName){
+            unpackToNodeModules(tarFileName, repoName, this.done("unpackToNodeModules"));
         },
-        function(callback, targetDir, repoName){
+        function(targetDir, repoName){
             console.log("unpack package [ %s  ] ok!",repoName);
             execNpmInstall(targetDir);
-            successCallback();
+            //successCallback(null);
         }
-    ]).fail(function(error){
+    ],function(error){
         successCallback(error);
+        /*if (error){
+
+        }*/
+
     }).run(pkgName);
 };
 
