@@ -34,7 +34,7 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "atomer-async": "^0.0.5",
+    "atomer-async": "latest",
     "commander": "^2.9.0",
     "ramda": "^0.23.0",
     "request": "^2.81.0",
