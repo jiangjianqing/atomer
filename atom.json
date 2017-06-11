@@ -1,7 +1,12 @@
 {
-	"dependencies": {
-		"test": "latest",
-		"app": "latest",
-		"eruw": "latest"
-	}
+  "name": "atomer",
+  "version": "0.0.1",
+  "builder": "babel",
+  "private": false,
+  "bin": true,
+  "dependencies": {
+    "test": "latest",
+    "app": "latest",
+    "eruw": "latest"
+  }
 }
