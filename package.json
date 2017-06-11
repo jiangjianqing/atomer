@@ -12,7 +12,7 @@
     "compile:lib": "babel src/lib -d lib",
     "compile:bin": "babel src/bin -d bin",
     "test": "mocha",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
