@@ -12,8 +12,8 @@ var config = atomPackage.load();
 if(config){
     //console.log("发现atomer 配置文件 atom.json,内容为:");
     //console.log(config);
-    var package = require(cwd+"/package.json");
-    program.version(package.version)
+    var pkg = require(cwd+"/package.json");
+    program.version(pkg.version)
         .command('install [name]', 'install one atom packages')
         .command('uninstall [name]', 'uninstall one atom package')
         .parse(process.argv);
