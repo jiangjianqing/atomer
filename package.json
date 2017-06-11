@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "atom compiler",
   "scripts": {
-    "build":"run-s type-check compile test",
+    "build": "run-s type-check compile test",
     "clean": "run-s clean:*",
     "clean:bin": "rimraf bin",
     "clean:lib": "rimraf lib",
@@ -11,6 +11,8 @@
     "compile": "run-s clean compile:*",
     "compile:lib": "babel src/lib -d lib",
     "compile:bin": "babel src/bin -d bin",
+    "watch": "gulp watch",
+    "dev": "run-s build watch",
     "test": "mocha",
     "prepublish": "npm run build"
   },
@@ -32,21 +34,24 @@
   "preferGlobal": true,
   "bin": "./bin/cli.js",
   "devDependencies": {
-    "npm-run-all": "latest",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
     "babel-preset-flow": "latest",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^3.5.0",
     "eslint": "latest",
     "eslint-config-atomer": "latest",
     "eslint-plugin-flowtype": "latest",
     "flow-bin": "latest",
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-watch": "^4.3.11",
+    "mocha": "^3.2.0",
+    "npm-run-all": "latest"
   },
   "dependencies": {
     "debug": "latest",
