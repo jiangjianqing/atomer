@@ -3,7 +3,7 @@
  */
 
 var program = require("commander");
-var atomPackage= require("../lib/atom-package");
+var atomPackage = require("../lib/atom-package");
 var deleteAtomPackage = require("./features/deletel-atom-package");
 
 var packageName;
