@@ -5,5 +5,7 @@ docs/api/
 dist/
 .idea
 *.iml
+bin/
+lib/
 .DS_Store
 npm-debug.log
