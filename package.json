@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "atom compiler",
   "scripts": {
+    "type-check": "flow check",
     "compile": "test -d src && babel src -d lib -s || echo 'Compile:src directory not found,compile ignored!'",
     "test": "npm run compile && mocha",
     "prepublish": "npm run compile"
