@@ -2,10 +2,10 @@ node_modules/
 bower_components/
 tmp/
 docs/api/
-dist/
+/dist/
 .idea
 *.iml
-bin/
-lib/
+/bin/
+/lib/
 .DS_Store
 npm-debug.log
